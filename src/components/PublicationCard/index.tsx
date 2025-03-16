@@ -1,19 +1,22 @@
 import { PublicationCardContainer, PublicationCardHeader } from "./styles";
+import { truncateText } from "../../utils/truncateText";
+import { formatDistance } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
-export function PublicationCard() {
+interface PublicationProps {
+  title: string;
+  body: string;
+  created_at: string;
+}
+
+export function PublicationCard({ title, body, created_at }: PublicationProps) {
   return (
     <PublicationCardContainer>
       <PublicationCardHeader>
-        <h3>JavaScript data types and data structures</h3>
-        <span>Há 1 dia</span>
+        <h3>{title}</h3>
+        <span>{formatDistance(created_at, new Date(), { locale: ptBR })}</span>
       </PublicationCardHeader>
-      <p>
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in JavaScript and what properties
-        they have. These can be used to build other data structures. Wherever
-        possible, comparisons with other languages are drawn.
-      </p>
+      <p>{truncateText(body)}</p>
     </PublicationCardContainer>
   );
 }
