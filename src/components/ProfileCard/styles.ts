@@ -57,10 +57,10 @@ export const ProfileListLinks = styled.ul`
     align-items: center;
     gap: 0.5rem;
 
-    a {
-      color: ${(props) => props.theme.colors.baseSubtitle};
+    span {
       font-size: 1rem;
       text-transform: none;
+      line-height: 0;
     }
   }
 `;
