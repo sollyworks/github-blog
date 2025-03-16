@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { Theme } from "./styles/Theme/theme";
 import { Header } from "./components/Header";
 import { ProfileCard } from "./components/ProfileCard";
+import { Publications } from "./components/Publications";
 
 export function App() {
   return (
@@ -10,6 +11,7 @@ export function App() {
       <GlobalTheme />
       <Header />
       <ProfileCard />
+      <Publications />
     </ThemeProvider>
   );
 }
