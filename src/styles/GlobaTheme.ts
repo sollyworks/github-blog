@@ -39,4 +39,9 @@ export const GlobalTheme = createGlobalStyle`
         font-size: .75rem;
         text-transform: uppercase;
         }
+
+        img {
+          width: 100%;
+          display: block;
+        }
 `;
