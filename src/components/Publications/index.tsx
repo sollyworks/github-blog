@@ -6,35 +6,17 @@ import {
 } from "./styles";
 import { SearchInput } from "../SearchInput";
 import { PublicationCard } from "../PublicationCard";
-import { api } from "../../libs/axios";
-
-interface Publication {
-  id: number;
-  title: string;
-  body: string;
-  created_at: string;
-}
+import { PublicationContext } from "../../contexts/PublicationContext";
 
 export function Publications() {
-  const [publications, setPublications] = React.useState([] as Publication[]);
-
-  React.useEffect(() => {
-    async function getPublications() {
-      const response = await api.get("/repos/sollyworks/github-blog/issues");
-      const publications = await response.data;
-
-      setPublications(publications);
-    }
-
-    getPublications();
-  }, []);
+  const { publications } = React.useContext(PublicationContext);
 
   return (
     <section style={{ padding: "4rem 1rem" }}>
       <PublicationsContainer>
         <PublicationsHeader>
           <h2>Publicações</h2>
-          <span>10 Publicações</span>
+          <span>{publications.length} Publicações</span>
         </PublicationsHeader>
         <SearchInput />
         <PublicationsList>
