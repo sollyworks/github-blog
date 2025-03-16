@@ -29,6 +29,10 @@ export const ProfileCardImage = styled.div`
   }
 `;
 
+export const ProfileInfoContainer = styled.div`
+  width: 100%;
+`;
+
 export const ProfileInfoHead = styled.header`
   display: flex;
   justify-content: space-between;

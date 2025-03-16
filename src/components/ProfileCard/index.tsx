@@ -4,6 +4,7 @@ import {
   ProfileCardImage,
   ProfileInfoHead,
   ProfileListLinks,
+  ProfileInfoContainer,
 } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -44,7 +45,7 @@ export function ProfileCard() {
         <ProfileCardImage>
           <img src={user.avatar_url} alt="User Profile Picture" />
         </ProfileCardImage>
-        <div>
+        <ProfileInfoContainer>
           <ProfileInfoHead>
             <h2>{user.name}</h2>
             <a href={user.html_url} target="_blank" rel="noopener noreferrer">
@@ -67,7 +68,7 @@ export function ProfileCard() {
               <span>{user.followers} seguidores</span>
             </li>
           </ProfileListLinks>
-        </div>
+        </ProfileInfoContainer>
       </ProfileCardContainer>
     </section>
   );
