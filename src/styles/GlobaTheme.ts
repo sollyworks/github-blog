@@ -41,7 +41,11 @@ export const GlobalTheme = createGlobalStyle`
         font-size: .75rem;
         text-transform: uppercase;
         text-decoration: none;
+
+        svg {
+          color: ${(props) => props.theme.colors.blue};
         }
+      }
 
         img {
           width: 100%;
