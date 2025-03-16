@@ -22,7 +22,7 @@ export function Publications() {
         <SearchInput />
         <PublicationsList>
           {publications.map((publication) => (
-            <NavLink key={publication.id} to={`/post/${publication.id}`}>
+            <NavLink key={publication.id} to={`/post/${publication.number}`}>
               <PublicationCard {...publication} />
             </NavLink>
           ))}

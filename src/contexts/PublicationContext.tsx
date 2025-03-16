@@ -6,6 +6,7 @@ interface Publication {
   title: string;
   body: string;
   created_at: string;
+  number: number;
 }
 
 interface PublicationContextType {

@@ -1,7 +1,6 @@
 import { PublicationCardContainer, PublicationCardHeader } from "./styles";
 import { truncateText } from "../../utils/truncateText";
-import { formatDistance } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { formatDate } from "../../utils/formatDate";
 
 interface PublicationProps {
   title: string;
@@ -14,7 +13,7 @@ export function PublicationCard({ title, body, created_at }: PublicationProps) {
     <PublicationCardContainer>
       <PublicationCardHeader>
         <h3>{title}</h3>
-        <span>{formatDistance(created_at, new Date(), { locale: ptBR })}</span>
+        <span>{formatDate(created_at)}</span>
       </PublicationCardHeader>
       <p>{truncateText(body)}</p>
     </PublicationCardContainer>
