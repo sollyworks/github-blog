@@ -12,6 +12,7 @@ interface Publication {
 interface PublicationContextType {
   publications: Publication[];
   setPublications: (publications: Publication[]) => void;
+  searchPublications: (search: string) => void;
 }
 
 export const PublicationContext = React.createContext(
@@ -32,12 +33,26 @@ export function PublicationProvider({
     setPublications(publications);
   }
 
+  async function searchPublications(search: string) {
+    const response = await api.get("/search/issues", {
+      params: {
+        q: `${search} in:title,body repo:sollyworks/github-blog`,
+      },
+    });
+    const publications = await response.data;
+    console.log(publications.items);
+
+    setPublications(publications.items);
+  }
+
   React.useEffect(() => {
     getPublications();
   }, []);
 
   return (
-    <PublicationContext.Provider value={{ publications, setPublications }}>
+    <PublicationContext.Provider
+      value={{ publications, setPublications, searchPublications }}
+    >
       {children}
     </PublicationContext.Provider>
   );
