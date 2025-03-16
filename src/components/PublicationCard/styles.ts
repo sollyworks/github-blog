@@ -4,6 +4,7 @@ export const PublicationCardContainer = styled.div`
   width: 100%;
   border-radius: 10px;
   padding: 2rem;
+  height: 100%;
   background-color: ${(props) => props.theme.colors.basePost};
 `;
 
