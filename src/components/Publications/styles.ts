@@ -22,4 +22,17 @@ export const PublicationsList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+
+  a {
+    text-decoration: none;
+    text-transform: none;
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
 `;

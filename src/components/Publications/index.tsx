@@ -7,6 +7,7 @@ import {
 import { SearchInput } from "../SearchInput";
 import { PublicationCard } from "../PublicationCard";
 import { PublicationContext } from "../../contexts/PublicationContext";
+import { NavLink } from "react-router";
 
 export function Publications() {
   const { publications } = React.useContext(PublicationContext);
@@ -21,7 +22,9 @@ export function Publications() {
         <SearchInput />
         <PublicationsList>
           {publications.map((publication) => (
-            <PublicationCard key={publication.id} {...publication} />
+            <NavLink key={publication.id} to={`/post/${publication.id}`}>
+              <PublicationCard {...publication} />
+            </NavLink>
           ))}
         </PublicationsList>
       </PublicationsContainer>
